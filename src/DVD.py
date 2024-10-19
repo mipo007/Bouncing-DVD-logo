@@ -1,15 +1,15 @@
 import pygame as pg
 import random
 
-SCREEN_WIDTH, SCREEN_HEIGHT = 900, 600
-LOGO_PATH = '../stuffs/dvd.png'
+SCREEN_WIDTH, SCREEN_HEIGHT = 1080, 1920
+LOGO_PATH = './stuffs/dvd.png'
 
 class DVD:
     def __init__(self, window) -> None:
         self.window = window
         
         self.sprite = pg.image.load(LOGO_PATH)
-        self.scaleDown_ratio = 8
+        self.scaleDown_ratio = 4
         self.width = self.sprite.get_width() // self.scaleDown_ratio
         self.height = self.sprite.get_height() // self.scaleDown_ratio
         self.logo = pg.transform.scale(self.sprite, (self.width, self.height))
@@ -19,7 +19,7 @@ class DVD:
         self.x = random.randint(self.gap, int(SCREEN_WIDTH - self.width) - self.gap)
         self.y = random.randint(self.gap, int(SCREEN_HEIGHT - self.height) - self.gap)
         
-        self.velocity = 4
+        self.velocity = 12
         self.dx = self.velocity if random.randint(0, 1) == 1 else -self.velocity
         self.dy = self.velocity if random.randint(0, 1) == 1 else -self.velocity
         
